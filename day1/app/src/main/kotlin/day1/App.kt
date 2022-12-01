@@ -3,10 +3,26 @@
  */
 package day1
 
+import java.io.File
+import kotlin.collections.*
+
 import day1.Elf
 
 class App {
-  fun parse(data: String): List<Elf> {
+
+  fun call(): String {
+    val data = load()
+    val elves = parse(data)
+    elves.sortByDescending { it.calories }
+
+    return elves.take(3).sumBy { it.calories }.toString()
+  }
+
+  fun load(): String {
+    return File("src/main/resources/input.txt").readText()
+  }
+
+  fun parse(data: String): ArrayList<Elf> {
     val arr: ArrayList<Elf> = ArrayList<Elf>()
 
     val lines = data.lines().map { it.trim() }
@@ -27,5 +43,5 @@ class App {
 }
 
 fun main() {
-  
+  println("Sum calories: " + App().call())
 }
