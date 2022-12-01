@@ -3,13 +3,29 @@
  */
 package day1
 
+import day1.Elf
+
 class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
+  fun parse(data: String): List<Elf> {
+    val arr: ArrayList<Elf> = ArrayList<Elf>()
+
+    val lines = data.lines().map { it.trim() }
+    var currentCalories = 0
+    for(line in lines) {
+      if (line.isNullOrBlank()) {
+        if (currentCalories > 0) {
+          arr.add(Elf(arr.size + 1, currentCalories))
+          currentCalories = 0
         }
+      } else {
+        currentCalories += line.toInt()
+      }
+    }
+
+    return arr
+  }
 }
 
 fun main() {
-    println(App().greeting)
+  
 }
