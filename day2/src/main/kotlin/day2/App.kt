@@ -8,25 +8,25 @@ import kotlin.collections.*
 
 class App {
 
-  fun call(): String {
-    val input = load()
-    val rounds = parse(input)
-    return calculateTotalScore(rounds).toString()
-  }
+    fun call(): String {
+        val input = load()
+        val rounds = parse(input)
+        return calculateTotalScore(rounds).toString()
+    }
 
-  fun load(): String {
-    return File("src/main/resources/input.txt").readText()
-  }
-  fun parse(data: String) =
-      data.lines()
-          .map { it.trim() }
-          .map { it.split("\\s".toRegex()).toTypedArray() }
-          .map { Round(it[0], it[1]) }
+    fun load(): String {
+        return File("src/main/resources/input.txt").readText()
+    }
+    fun parse(data: String) =
+        data.lines()
+            .map { it.trim() }
+            .map { it.split("\\s".toRegex()).toTypedArray() }
+            .map { Round(it[0], it[1]) }
 
-  fun calculateTotalScore(rounds: List<Round>) =
+    fun calculateTotalScore(rounds: List<Round>) =
         rounds.sumOf { it.score() }
 }
 
 fun main() {
-  println(App().call())
+    println(App().call())
 }

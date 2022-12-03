@@ -3,24 +3,24 @@
  */
 package day2
 
-import kotlin.test.Test
 import kotlin.test.*
+import kotlin.test.Test
 
 val data =
-  """
+    """
   A Y
   B X
   C Z
-  """.trimIndent()
+    """.trimIndent()
 
 class AppTest {
-  @Test fun scoreIsCorrect() {
-    val subject = App()
+    @Test fun scoreIsCorrect() {
+        val subject = App()
 
-    val rounds = subject.parse(data)
-    assertEquals(rounds.size, 3)
-    val score = subject.calculateTotalScore(rounds)
+        val rounds = subject.parse(data)
+        assertEquals(rounds.size, 3)
+        val score = subject.calculateTotalScore(rounds)
 
-    assertEquals(score, 12)
-  }
+        assertEquals(score, 12)
+    }
 }
