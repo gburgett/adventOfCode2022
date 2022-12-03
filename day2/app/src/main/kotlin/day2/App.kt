@@ -3,13 +3,30 @@
  */
 package day2
 
+import java.io.File
+import kotlin.collections.*
+
 class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
+
+  fun call(): String {
+    val input = load()
+    val rounds = parse(input)
+    return calculateTotalScore(rounds).toString()
+  }
+
+  fun load(): String {
+    return File("src/main/resources/input.txt").readText()
+  }
+  fun parse(data: String) =
+      data.lines()
+          .map { it.trim() }
+          .map { it.split("\\s".toRegex()).toTypedArray() }
+          .map { Round(it[0], it[1]) }
+
+  fun calculateTotalScore(rounds: List<Round>) =
+        rounds.sumOf { it.score() }
 }
 
 fun main() {
-    println(App().greeting)
+  println(App().call())
 }

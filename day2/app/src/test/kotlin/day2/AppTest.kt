@@ -4,11 +4,23 @@
 package day2
 
 import kotlin.test.Test
-import kotlin.test.assertNotNull
+import kotlin.test.*
+
+val data =
+  """
+  A Y
+  B X
+  C Z
+  """.trimIndent()
 
 class AppTest {
-    @Test fun appHasAGreeting() {
-        val classUnderTest = App()
-        assertNotNull(classUnderTest.greeting, "app should have a greeting")
-    }
+  @Test fun scoreIsCorrect() {
+    val subject = App()
+
+    val rounds = subject.parse(data)
+    assertEquals(rounds.size, 3)
+    val score = subject.calculateTotalScore(rounds)
+
+    assertEquals(score, 15)
+  }
 }
