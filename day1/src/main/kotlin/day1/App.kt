@@ -4,7 +4,8 @@
 package day1
 
 import java.io.File
-import kotlin.collections.*
+import kotlin.collections.sumOf
+import kotlin.collections.take
 
 class App {
 
@@ -13,7 +14,7 @@ class App {
         val elves = parse(data)
         elves.sortByDescending { it.calories }
 
-        return elves.take(3).sumBy { it.calories }.toString()
+        return elves.take(3).sumOf { it.calories }.toString()
     }
 
     fun load(): String {

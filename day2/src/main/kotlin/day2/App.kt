@@ -4,7 +4,8 @@
 package day2
 
 import java.io.File
-import kotlin.collections.*
+import kotlin.collections.map
+import kotlin.collections.sumOf
 
 class App {
 

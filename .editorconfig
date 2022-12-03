@@ -1,0 +1,3 @@
+
+[*Test.kt]
+ktlint_disabled_rules = no-wildcard-imports
