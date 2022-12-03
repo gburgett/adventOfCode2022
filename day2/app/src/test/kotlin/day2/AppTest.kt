@@ -21,6 +21,6 @@ class AppTest {
     assertEquals(rounds.size, 3)
     val score = subject.calculateTotalScore(rounds)
 
-    assertEquals(score, 15)
+    assertEquals(score, 12)
   }
 }
